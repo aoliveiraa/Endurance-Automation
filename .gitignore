@@ -1,0 +1,47 @@
+# Node modules
+node_modules/
+
+# Playwright browser profile
+.endurance-playwright-profile/
+
+# Playwright reports
+playwright-report/
+test-results/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.*
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# VSCode
+.vscode/
+
+# JetBrains
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Package generated files
+*.exe
+
+# Screenshots
+screenshots/
+evidence/
+exports/
+
+# Coverage
+coverage/
+
+# OS files
+.DS_Store
