@@ -1,0 +1,23 @@
+directories:
+  output: release
+  buildResources: build
+appId: com.performanceengineering.enduranceautomation
+productName: Endurance Automation
+artifactName: EnduranceAutomation_${version}_Portable.${ext}
+asar: true
+asarUnpack:
+  - node_modules/playwright-core/**
+files:
+  - filter:
+      - main.js
+      - preload.js
+      - endurance.js
+      - ui/**/*
+      - node_modules/playwright-core/**/*
+      - package.json
+win:
+  target:
+    - target: portable
+      arch:
+        - x64
+electronVersion: 38.8.6

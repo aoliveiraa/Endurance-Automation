@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Endurance Automation</title>
+  <style>
+    :root{--navy:#082b5c;--blue:#0f6cbd;--teal:#0f9f9a;--bg:#f4f7fb;--card:#fff;--line:#d9e2ec;--text:#172033;--muted:#66758a;--danger:#c42b1c;--warning:#c27c0e;--success:#107c10}
+    *{box-sizing:border-box}html,body{height:100%;margin:0;font-family:"Segoe UI",Arial,sans-serif;color:var(--text);background:var(--bg)}button,input{font:inherit}.app{min-height:100vh;display:grid;grid-template-rows:82px 1fr 36px}.header{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;color:#fff;background:linear-gradient(105deg,var(--navy),var(--blue) 68%,var(--teal))}.brand{display:flex;align-items:center;gap:13px}.logo{width:46px;height:46px;display:grid;place-items:center;border:1px solid #ffffff66;border-radius:14px;background:#ffffff20;font-weight:700}.brand h1{margin:0;font-size:23px}.brand p{margin:4px 0 0;font-size:11px;letter-spacing:1.3px;color:#ffffffc7;text-transform:uppercase}.version{padding:7px 11px;border:1px solid #ffffff55;border-radius:999px;background:#ffffff18}.main{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(360px,.85fr);gap:16px;padding:18px 22px}.column{min-width:0;display:flex;flex-direction:column;gap:14px}.card{border:1px solid var(--line);border-radius:14px;background:var(--card);box-shadow:0 12px 30px #082b5c12;padding:17px}.title{margin:0;color:var(--navy);font-size:16px}.subtitle{margin:4px 0 14px;color:var(--muted);font-size:12px}.input-row{display:grid;grid-template-columns:1fr auto auto;gap:9px}.input,.btn{height:43px;border-radius:8px}.input{padding:0 12px;border:1px solid #bcc9d8}.btn{padding:0 17px;border:0;color:#fff;font-weight:650;cursor:pointer}.btn:disabled{opacity:.55}.start-btn{background:linear-gradient(100deg,var(--blue),var(--teal))}.cancel-btn{background:#687789}.validation{min-height:16px;margin-top:6px;color:var(--danger);font-size:11px}.status-row,.progress-head,.result-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.eyebrow{font-size:10px;font-weight:700;letter-spacing:1px;color:var(--muted);text-transform:uppercase}.status h2{margin:4px 0 3px;color:var(--navy);font-size:18px}.status p{margin:0;color:var(--muted);font-size:12px}.badge,.severity{padding:6px 10px;border-radius:999px;background:#edf3f9;font-size:10px;font-weight:700}.badge.running{background:#dff5f3;color:#075f5b}.badge.completed{background:#e5f4e5;color:var(--success)}.badge.error{background:#fde7e5;color:#8d1b13}.progress-head{margin-top:15px;color:var(--muted);font-size:11px}.track{height:9px;margin-top:7px;overflow:hidden;border-radius:999px;background:#e8eef4}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--teal))}.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.metric{padding:10px;border:1px solid var(--line);border-radius:10px;background:#fbfdff}.metric span{display:block;color:var(--muted);font-size:9px;font-weight:700;text-transform:uppercase}.metric strong{font-size:20px;color:var(--navy)}.review{flex:1;min-height:320px}.results{display:grid;gap:9px;max-height:520px;overflow:auto}.empty{padding:30px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:10px}.result{padding:12px;border:1px solid var(--line);border-left:5px solid var(--warning);border-radius:10px}.result.high{border-left-color:var(--danger)}.severity.high{background:#fde7e5;color:#8d1b13}.severity.medium{background:#fff4ce;color:#7a4b00}.chart-name{margin:9px 0 7px;font-size:12px;font-weight:700}.detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:9px 0}.detail-box{padding:9px 10px;border-radius:8px;background:#f6f9fc}.detail-box.wide{grid-column:1/-1}.detail-box span{display:block;color:var(--muted);font-size:9px;font-weight:700;text-transform:uppercase}.detail-box strong{display:block;margin-top:2px;color:var(--navy);font-size:12px;overflow-wrap:anywhere}.behavior-note{margin-top:8px;padding:9px 10px;border-radius:8px;background:#eef6ff;color:#24476b;font-size:10px}.process-details{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;margin:9px 0}.process-box{padding:9px 10px;border-radius:8px;background:#f6f9fc}.process-box span{display:block;color:var(--muted);font-size:9px;font-weight:700;text-transform:uppercase}.process-box strong{display:block;margin-top:2px;color:var(--navy);font-size:12px}.values{color:var(--muted);font-size:11px}.open{border:0;background:#e7f1fb;color:var(--blue);padding:6px 9px;border-radius:7px;font-weight:700;cursor:pointer}.log{color:#dbe8f6;border-color:#173e6d;background:#092d59}.log h2{color:#fff}.log pre{height:120px;overflow:auto;font:10px/1.5 Consolas,monospace;white-space:pre-wrap}.footer{display:flex;align-items:center;justify-content:space-between;padding:0 22px;border-top:1px solid var(--line);background:#fff;color:var(--muted);font-size:10px}@media(max-width:1000px){.main{grid-template-columns:1fr}.metric-grid{grid-template-columns:repeat(2,1fr)}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <header class="header"><div class="brand"><div class="logo">EA</div><div><h1>Endurance Automation</h1><p>Memory growth analyzer</p></div></div><div class="version">v2.2.0</div></header>
+  <main class="main">
+    <section class="column">
+      <div class="card"><h2 class="title">Start report analysis</h2><p class="subtitle">Paste the performance report URL. Low-risk tabs are closed; Medium and High remain open.</p><div class="input-row"><input id="reportUrl" class="input" placeholder="https://..."><button id="startBtn" class="btn start-btn" type="button">Start analysis</button><button id="cancelBtn" class="btn cancel-btn" type="button" disabled>Cancel</button></div><div id="validation" class="validation"></div></div>
+      <div class="card status"><div class="status-row"><div><div class="eyebrow">Execution status</div><h2 id="statusTitle">Ready to start</h2><p id="statusDescription">Enter a valid report URL.</p></div><div id="statusBadge" class="badge">Ready</div></div><div class="progress-head"><span id="progressText">0 of 0 tabs</span><strong id="progressPercent">0%</strong></div><div class="track"><div id="progressBar" class="bar"></div></div></div>
+      <div class="card"><h2 class="title">Analysis summary</h2><p class="subtitle">Private Bytes growth from the first to the last valid sample.</p><div class="metric-grid"><div class="metric"><span>High</span><strong id="high">0</strong></div><div class="metric"><span>Medium</span><strong id="medium">0</strong></div><div class="metric"><span>Low</span><strong id="low">0</strong></div><div class="metric"><span>Not analyzed</span><strong id="notAnalyzed">0</strong></div></div></div>
+      <div class="card log"><h2 class="title">Execution log</h2><pre id="logOutput">Ready. Paste a report URL to start.</pre></div>
+    </section>
+    <aside class="column"><div class="card review"><h2 class="title">Charts to review</h2><p class="subtitle">Only Medium and High process series are listed.</p><div id="results" class="results"><div class="empty">No chart requires review yet.</div></div></div><div class="card"><h2 class="title">Current activity</h2><p id="current">Not started</p></div></aside>
+  </main>
+  <footer class="footer"><span>Endurance Automation</span><span>Low ≤ 100 MB | Medium &gt; 100 MB | High &gt; 550 MB</span></footer>
+</div>
+<script>
+'use strict';
+const byId = id => document.getElementById(id);
+let running = false;
+let total = 0;
+let reviewResults = [];
+
+function appendLog(message, level = 'info') {
+  const output = byId('logOutput');
+  if (output.textContent.startsWith('Ready.')) output.textContent = '';
+  const prefix = level === 'error' ? '[ERROR] ' : '';
+  output.textContent += `${new Date().toLocaleTimeString()} ${prefix}${message}\n`;
+  output.scrollTop = output.scrollHeight;
+}
+function setStatus(title, description, mode = 'running') {
+  byId('statusTitle').textContent = title;
+  byId('statusDescription').textContent = description;
+  byId('statusBadge').textContent = mode;
+  byId('statusBadge').className = `badge ${mode}`;
+}
+function updateProgress(done) {
+  const percent = total ? Math.round((done / total) * 100) : 0;
+  byId('progressText').textContent = `${done} of ${total} tabs`;
+  byId('progressPercent').textContent = `${percent}%`;
+  byId('progressBar').style.width = `${percent}%`;
+}
+function setRunning(value) {
+  running = value;
+  byId('startBtn').disabled = value;
+  byId('cancelBtn').disabled = !value;
+  byId('reportUrl').disabled = value;
+}
+function escapeHtml(value) {
+  const element = document.createElement('div');
+  element.textContent = String(value ?? '');
+  return element.innerHTML;
+}
+function renderResults() {
+  const box = byId('results');
+  if (!reviewResults.length) {
+    box.innerHTML = '<div class="empty">No chart requires review yet.</div>';
+    return;
+  }
+  const priority = { HIGH: 0, MEDIUM: 1 };
+  reviewResults.sort((a, b) => (priority[a.severity] ?? 9) - (priority[b.severity] ?? 9));
+  box.innerHTML = reviewResults.map((result, index) => {
+    const severity = String(result.severity || 'MEDIUM').toLowerCase();
+    const initial = Number(result.initialMB || 0).toFixed(2);
+    const finalValue = Number(result.finalMB || 0).toFixed(2);
+    const increaseValue = Number(result.increaseMB || 0);
+    const increase = `${increaseValue >= 0 ? '+' : ''}${increaseValue.toFixed(2)}`;
+    return `<div class="result ${severity}"><div class="result-head"><span class="severity ${severity}">${escapeHtml(result.severity)}</span><button class="open" type="button" data-index="${index}">Open chart</button></div><div class="chart-name">${escapeHtml(result.hardware)} | ${escapeHtml(result.action)}</div><div class="detail-grid"><div class="detail-box"><span>Hardware</span><strong>${escapeHtml(result.graphHardware || result.hardware)}</strong></div><div class="detail-box"><span>Action</span><strong>${escapeHtml(result.graphAction || result.action)}</strong></div><div class="detail-box wide"><span>Scenario</span><strong>${escapeHtml(result.scenario || 'Not available')}</strong></div><div class="detail-box"><span>Counter</span><strong>${escapeHtml(result.graphCounter || result.counter || 'Private Bytes')}</strong></div><div class="detail-box"><span>Raw data</span><strong>${escapeHtml(result.rawData || (finalValue + ' MB'))}</strong></div><div class="detail-box"><span>Process</span><strong>${escapeHtml(result.process || result.rawSeriesName || 'Unknown process')}</strong></div><div class="detail-box"><span>PID</span><strong>${escapeHtml(result.pid || 'Not available')}</strong></div><div class="detail-box"><span>Behavior</span><strong>${escapeHtml(result.behavior || 'Not classified')}</strong></div><div class="detail-box"><span>Confidence</span><strong>${escapeHtml(result.behaviorConfidence || 'Not available')}</strong></div></div><div class="values">Initial ${initial} MB · Final ${finalValue} MB · Increase ${increase} MB · Peak ${Number(result.peakMB || result.finalMB || 0).toFixed(2)} MB</div><div class="behavior-note">Pattern-based assessment only. It describes the memory curve and does not by itself confirm a memory leak or the reason for allocation.</div></div>`;
+  }).join('');
+  box.querySelectorAll('.open').forEach(button => {
+    button.addEventListener('click', () => {
+      const result = reviewResults[Number(button.dataset.index)];
+      window.electronAPI.focusChart(result.tabId);
+    });
+  });
+}
+function getValidUrl() {
+  const raw = byId('reportUrl').value.trim();
+  if (!raw) throw new Error('Enter the performance report URL.');
+  const parsed = new URL(raw);
+  if (!['http:', 'https:'].includes(parsed.protocol)) throw new Error('Only HTTP and HTTPS URLs are supported.');
+  return parsed.toString();
+}
+async function startAnalysis() {
+  if (running) return;
+  byId('validation').textContent = '';
+  let url;
+  try { url = getValidUrl(); }
+  catch (error) { byId('validation').textContent = error.message; return; }
+  localStorage.setItem('endurance.lastUrl', url);
+  reviewResults = [];
+  total = 0;
+  renderResults();
+  ['high', 'medium', 'low', 'notAnalyzed'].forEach(id => { byId(id).textContent = '0'; });
+  setRunning(true);
+  setStatus('Starting analysis', 'Launching browser.', 'running');
+  appendLog('Starting Endurance Automation.');
+  try {
+    const result = await window.electronAPI.execute(url);
+    if (!result || !result.ok) throw new Error(result?.message || 'Unable to start automation.');
+  } catch (error) {
+    setRunning(false);
+    setStatus('Unable to start', error.message, 'error');
+    appendLog(error.message, 'error');
+  }
+}
+
+byId('startBtn').addEventListener('click', startAnalysis);
+byId('reportUrl').addEventListener('keydown', event => { if (event.key === 'Enter') startAnalysis(); });
+byId('cancelBtn').addEventListener('click', async () => {
+  const result = await window.electronAPI.cancel();
+  if (!result?.ok) appendLog(result?.message || 'Unable to cancel.', 'error');
+});
+byId('reportUrl').value = localStorage.getItem('endurance.lastUrl') || '';
+
+window.electronAPI.onAutomationLog(({ level, message }) => appendLog(message, level));
+window.electronAPI.onAutomationEvent(event => {
+  switch (event.type) {
+    case 'status': setStatus(event.title, event.description, 'running'); break;
+    case 'plan': total = Number(event.total || 0); updateProgress(0); break;
+    case 'current': byId('current').textContent = `${event.hardware} | ${event.action} | ${event.counter}`; break;
+    case 'memory-analysis': reviewResults.push(...(event.results || []).filter(result => result.severity !== 'LOW')); renderResults(); break;
+    case 'analysis-warning': appendLog(`${event.hardware} | ${event.action}: ${event.reason}`, 'error'); break;
+    case 'progress':
+      updateProgress(Number(event.completed || 0));
+      byId('high').textContent = event.severityTotals?.HIGH ?? 0;
+      byId('medium').textContent = event.severityTotals?.MEDIUM ?? 0;
+      byId('low').textContent = event.severityTotals?.LOW ?? 0;
+      byId('notAnalyzed').textContent = event.severityTotals?.NOT_ANALYZED ?? 0;
+      break;
+    case 'completed':
+      setRunning(false); updateProgress(Number(event.total || total));
+      setStatus('Analysis completed', `${event.severityTotals?.HIGH ?? 0} High, ${event.severityTotals?.MEDIUM ?? 0} Medium, ${event.severityTotals?.LOW ?? 0} Low.`, 'completed');
+      break;
+    case 'error': setRunning(false); setStatus('Automation failed', event.message, 'error'); appendLog(event.message, 'error'); break;
+  }
+});
+window.electronAPI.onAutomationExit(({ code, signal }) => {
+  if (!running) return;
+  setRunning(false);
+  setStatus(signal ? 'Automation cancelled' : 'Automation stopped', signal ? 'Browser was closed.' : `Exit code ${code}`, signal ? 'ready' : 'error');
+});
+</script>
+</body>
+</html>

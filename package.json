@@ -1,24 +1,26 @@
 {
   "name": "endurance-automation",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Portable endurance report memory analysis tool",
+  "main": "main.js",
+  "author": "Performance Engineering",
+  "license": "UNLICENSED",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron .",
+    "check": "node --check endurance.js && node --check main.js && node --check preload.js",
+    "build:portable": "electron-builder --win portable --x64",
+    "build:folder": "electron-builder --win dir --x64"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aoliveiraa/Endurance-Automation.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/aoliveiraa/Endurance-Automation/issues"
-  },
-  "homepage": "https://github.com/aoliveiraa/Endurance-Automation#readme",
-  "dependencies": {
-    "playwright": "^1.63.0"
+  "dependencies": { "playwright": "^1.63.0" },
+  "devDependencies": { "electron": "38.8.6", "electron-builder": "^26.15.3" },
+  "build": {
+    "appId": "com.performanceengineering.enduranceautomation",
+    "productName": "Endurance Automation",
+    "artifactName": "EnduranceAutomation_${version}_Portable.${ext}",
+    "asar": true,
+    "asarUnpack": ["node_modules/playwright-core/**"],
+    "files": ["main.js", "preload.js", "endurance.js", "ui/**/*", "node_modules/playwright-core/**/*", "package.json"],
+    "directories": { "output": "release" },
+    "win": { "target": [{ "target": "portable", "arch": ["x64"] }] }
   }
 }
